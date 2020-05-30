@@ -1,0 +1,42 @@
+int gelen;
+int kırmızıPin 2;
+int yeşilPin 3;
+int sarıPin 4;
+
+
+
+void setup() {
+  serial.begin(9600);
+  pinMode(kırmızıPin, OUTPUT);
+  pinMode(yeşilPin, OUTPUT);
+  pinMode(sarıPin, OUTPUT);
+  
+
+}
+
+void loop() {
+  if(serial.available()>0){
+    veri = serial.read();
+    
+  }
+
+  if(veri == 'a'){
+    digitalWrite(kırmızıPin, HIGH);
+    digitalWrite(yeşilPin, LOW);
+    digitalWrite(sarıPin, LOW);
+    
+  }
+  else if(veri == 'b'){
+    digitalWrite(kırmızıPin, LOW);
+    digitalWrite(yeşilPin, HIGH);
+    digitalWrite(sarıPin, LOW);
+    
+  }
+  else if(veri == 'C'){
+    digitalWrite(kırmızıPin, LOW);
+    digitalWrite(yeşilPin, LOW);
+    digitalWrite(sarıPin, HIGH);
+    
+  }
+
+}
